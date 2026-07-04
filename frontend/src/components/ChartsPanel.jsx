@@ -2,15 +2,22 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, PieChart, Pie, Cell, Legend } f
 
 const COLORS = { ERROR: "#ef4444", WARN: "#f59e0b", INFO: "#3b82f6", CRITICAL: "#a855f7" }
 
-export default function ChartsPanel({ logs }) {
+export default function ChartsPanel({ logs, onMinuteSelect, selectedMinute }) {
     // Errors per minute for line chart
     const byMinute = logs.reduce((acc, l) => {
         const min = l.timestamp.slice(0, 16)   // "2026-06-29 22:05"
-        if (!acc[min]) acc[min] = { time: min.slice(11), errors: 0 }
+        if (!acc[min]) acc[min] = { time: min.slice(11), minuteKey: min, errors: 0 }
         if (l.level === "ERROR" || l.level === "CRITICAL") acc[min].errors++
         return acc
     }, {})
     const lineData = Object.values(byMinute)
+
+    function handleChartClick(e) {
+        if (e?.activeIndex == null || !onMinuteSelect) return
+        const point = lineData[Number(e.activeIndex)]
+        if (!point) return
+        onMinuteSelect(point.minuteKey === selectedMinute ? null : point.minuteKey)
+    }
 
     // Level distribution for pie chart
     const levelCounts = logs.reduce((acc, l) => {
@@ -22,12 +29,29 @@ export default function ChartsPanel({ logs }) {
     return (
         <div className="flex gap-8 my-8 flex-wrap">
             <div>
-                <p className="text-sm text-gray-400 mb-2">Error rate over time</p>
-                <LineChart width={420} height={220} data={lineData}>
+                <p className="text-sm text-gray-400 mb-2">Error rate over time <span className="text-gray-600 text-xs">(click a point to filter the table)</span></p>
+                <LineChart width={420} height={220} data={lineData} onClick={handleChartClick} style={{ cursor: onMinuteSelect ? "pointer" : "default" }}>
                     <XAxis dataKey="time" stroke="#6b7280" tick={{ fontSize: 11 }} />
                     <YAxis stroke="#6b7280" tick={{ fontSize: 11 }} />
                     <Tooltip />
-                    <Line type="monotone" dataKey="errors" stroke="#ef4444" dot={false} />
+                    <Line
+                        type="monotone"
+                        dataKey="errors"
+                        stroke="#ef4444"
+                        dot={(props) => {
+                            const isActive = props.payload.minuteKey === selectedMinute
+                            return (
+                                <circle
+                                    key={props.payload.minuteKey}
+                                    cx={props.cx}
+                                    cy={props.cy}
+                                    r={isActive ? 5 : 2}
+                                    fill={isActive ? "#c084fc" : "#ef4444"}
+                                    stroke={isActive ? "#c084fc" : "none"}
+                                />
+                            )
+                        }}
+                    />
                 </LineChart>
             </div>
             <div>
