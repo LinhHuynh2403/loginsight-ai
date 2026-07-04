@@ -12,10 +12,14 @@ load_dotenv()
 
 app = FastAPI(title="LogInsight AI API")
 
+# Read allowed origins from env (comma-separated). Falls back to local dev.
+# In production, set ALLOWED_ORIGINS="https://your-app.vercel.app"
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173").split(",")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
+    allow_origins=ALLOWED_ORIGINS,
+    allow_credentials=False,  # not using cookies/auth, so no need for credentialed CORS
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -56,6 +60,10 @@ async def generate_log_diagnostic(error_message: str) -> str:
 @app.get("/")
 def root():
     return {"status": "healthy", "message": "LogInsight AI Backend running Core Services."}
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
 
 @app.post("/api/logs/upload", response_model=List[LogEntry])
 async def upload_log_file(file: UploadFile = File(...)):
