@@ -2,6 +2,10 @@
 
 A lightweight observability tool that ingests raw application logs, uses Gemini 2.5 Flash to auto-diagnose `ERROR`/`WARN` events with root-cause analysis, and visualizes system health in real time. Built to replicate the core workflow of tools like Datadog/Sentry on a small scale.
 
+## Live Demo
+- Frontend: https://loginsight-ai-three.vercel.app
+- Backend health check: https://loginsight-ai-production.up.railway.app/health
+
 ## Architecture
 
 ```
