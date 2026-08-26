@@ -29,10 +29,10 @@ export default function App() {
       <header className="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-900 pb-6 mb-8 gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <h1 className="text-xl font-bold tracking-tight text-white m-0 font-mono">LOGINSIGHT AI</h1>
-            <span className="bg-purple-500/10 text-purple-400 text-[10px] px-2 py-0.5 rounded font-mono border border-purple-500/20">SRE Core v2.5</span>
+            <h1 className="text-2xl font-bold tracking-tight text-white m-0 font-mono">LOGINSIGHT AI</h1>
+            <span className="bg-purple-500/10 text-purple-300 text-xs px-2 py-0.5 rounded font-mono border border-purple-500/20">SRE Core v2.5</span>
           </div>
-          <p className="text-xs text-gray-400 m-0">Autonomous production-grade metric parsing and diagnostic system architecture.</p>
+          <p className="text-sm text-gray-400 m-0">Autonomous production-grade metric parsing and diagnostic system architecture.</p>
         </div>
         <LogUpload setLogs={setLogs} setLoading={setLoading} />
       </header>
@@ -53,9 +53,9 @@ export default function App() {
               { label: "AI REMEDIATION TRIGGERS", value: metrics.aiDiagnosed, color: "text-purple-400" },
               { label: "SYSTEM OVERALL HEALTH", value: `${healthScore}%`, color: healthScore > 80 ? "text-green-400" : "text-yellow-400" }
             ].map((kpi, index) => (
-              <div key={index} className="bg-gray-900/40 border border-gray-800 p-4 rounded-lg flex flex-col justify-center">
-                <span className="text-[10px] font-mono tracking-wider text-gray-500 font-bold block mb-1">{kpi.label}</span>
-                <span className={`text-2xl font-mono font-bold ${kpi.color}`}>{kpi.value}</span>
+              <div key={index} className="bg-gray-900/40 border border-gray-800 p-5 rounded-lg flex flex-col justify-center">
+                <span className="text-xs font-mono tracking-wider text-gray-400 font-bold block mb-1.5">{kpi.label}</span>
+                <span className={`text-3xl font-mono font-bold ${kpi.color}`}>{kpi.value}</span>
               </div>
             ))}
           </div>
@@ -67,7 +67,7 @@ export default function App() {
 
           {/* Interactive Inspection Feed */}
           <div>
-            <h3 className="text-xs uppercase font-mono tracking-wider font-bold text-gray-400 mb-2">Structural Ingestion Stream</h3>
+            <h3 className="text-sm uppercase font-mono tracking-wider font-bold text-gray-300 mb-2">Structural Ingestion Stream</h3>
             <LogTable logs={logs} highlightMinute={selectedMinute} onClearHighlight={() => setSelectedMinute(null)} />
           </div>
         </div>

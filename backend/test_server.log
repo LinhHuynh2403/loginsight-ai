@@ -1,0 +1,4 @@
+2026-06-29 10:00:00 [INFO] Connection to gateway established successfully.
+2026-06-29 10:01:15 [ERROR] OperationalError: (psycopg2.OperationalError) FATAL: password authentication failed for user "admin"
+2026-06-29 10:02:30 [INFO] Refreshing connection pool tokens.
+2026-06-29 10:05:12 [WARN] High memory usage detected on node-2.

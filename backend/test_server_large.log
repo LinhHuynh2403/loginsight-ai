@@ -1,0 +1,44 @@
+2026-06-29 09:58:00 [INFO] Application boot sequence started.
+2026-06-29 09:58:02 [INFO] Connection to gateway established successfully.
+2026-06-29 09:58:47 [INFO] Refreshing connection pool tokens.
+2026-06-29 09:59:03 [WARN] High memory usage detected on node-2 (87% utilized).
+2026-06-29 10:00:00 [INFO] Health check passed for all upstream services.
+2026-06-29 10:01:15 [ERROR] OperationalError: (psycopg2.OperationalError) FATAL: password authentication failed for user "admin"
+2026-06-29 10:01:42 [ERROR] OperationalError: (psycopg2.OperationalError) FATAL: password authentication failed for user "admin"
+2026-06-29 10:01:58 [ERROR] OperationalError: (psycopg2.OperationalError) FATAL: password authentication failed for user "admin"
+2026-06-29 10:02:10 [INFO] Retrying database connection (attempt 2 of 5).
+2026-06-29 10:02:30 [ERROR] TimeoutError: Request to payment-service timed out after 30000ms.
+2026-06-29 10:02:45 [ERROR] TimeoutError: Request to payment-service timed out after 30000ms.
+2026-06-29 10:03:00 [WARN] Response latency for /api/checkout exceeded 2000ms threshold.
+2026-06-29 10:03:20 [ERROR] KeyError: 'user_id' not found in request session payload.
+2026-06-29 10:03:44 [CRITICAL] Redis connection pool exhausted: 0 of 50 connections available.
+2026-06-29 10:04:01 [ERROR] NullReferenceException: Object reference not set to an instance of an object in OrderProcessor.Validate().
+2026-06-29 10:04:19 [INFO] Cache warmed for product catalog (14,203 entries).
+2026-06-29 10:04:33 [ERROR] ValidationError: email field does not match required pattern.
+2026-06-29 10:04:50 [WARN] Disk usage on /var/log at 91% on node-3.
+2026-06-29 10:05:02 [ERROR] ConnectionResetError: [Errno 54] Connection reset by peer while streaming upload.
+2026-06-29 10:05:12 [WARN] High memory usage detected on node-2 (89% utilized).
+2026-06-29 10:05:30 [ERROR] IntegrityError: duplicate key value violates unique constraint "orders_pkey".
+2026-06-29 10:05:48 [ERROR] PermissionError: [Errno 13] Permission denied writing to /data/exports/report.csv.
+2026-06-29 10:06:05 [CRITICAL] OutOfMemoryError: Java heap space exhausted in worker process pid=8841.
+2026-06-29 10:06:22 [ERROR] JSONDecodeError: Expecting value: line 1 column 1 (char 0) while parsing webhook payload.
+2026-06-29 10:06:40 [ERROR] SSLCertVerificationError: certificate has expired for host api.partner-billing.com.
+2026-06-29 10:06:58 [ERROR] RateLimitExceeded: 429 Too Many Requests from upstream analytics API.
+2026-06-29 10:07:15 [INFO] Autoscaler added 2 new instances to handle load.
+2026-06-29 10:07:33 [ERROR] DeadlockDetected: Transaction rolled back due to deadlock with another transaction.
+2026-06-29 10:07:50 [ERROR] FileNotFoundError: [Errno 2] No such file or directory: '/config/feature_flags.yaml'.
+2026-06-29 10:08:08 [ERROR] IndexError: list index out of range in cart_totals_calculation().
+2026-06-29 10:08:25 [WARN] Queue depth for job worker "emails" exceeds 500 pending tasks.
+2026-06-29 10:08:44 [ERROR] AuthenticationError: JWT signature verification failed for incoming request.
+2026-06-29 10:09:02 [ERROR] BrokenPipeError: [Errno 32] Broken pipe while writing response stream.
+2026-06-29 10:09:20 [ERROR] TypeError: unsupported operand type(s) for +: 'NoneType' and 'int' in InvoiceCalculator.
+2026-06-29 10:09:38 [ERROR] ModuleNotFoundError: No module named 'legacy_billing_adapter'.
+2026-06-29 10:09:55 [ERROR] ConnectionRefusedError: [Errno 61] Connection refused to redis://cache-primary:6379.
+2026-06-29 10:10:12 [ERROR] StripeCardError: Your card was declined (insufficient_funds).
+2026-06-29 10:10:30 [ERROR] TimeoutError: Request to payment-service timed out after 30000ms.
+2026-06-29 10:10:48 [INFO] Scheduled backup job completed successfully (2.3GB).
+2026-06-29 10:11:05 [ERROR] OperationalError: (psycopg2.OperationalError) FATAL: password authentication failed for user "admin"
+2026-06-29 10:11:22 [WARN] CPU throttling detected on node-4 (94% sustained for 5 min).
+2026-06-29 10:11:40 [INFO] Deployment v2.14.3 rolled out to 100% of traffic.
+Malformed line with no timestamp or level, just raw text dumped by a misbehaving service.
+2026-06-29 10:12:00 [INFO] Session cleanup task removed 812 expired sessions.

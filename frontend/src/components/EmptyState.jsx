@@ -52,8 +52,8 @@ export default function EmptyState({ setLogs, setLoading }) {
             <div className="w-12 h-12 rounded-lg bg-gray-900/60 border border-gray-800 flex items-center justify-center mb-4">
                 <UploadCloud size={22} className="text-gray-600" />
             </div>
-            <p className="text-sm font-mono text-gray-300 mb-1">Drag &amp; drop a .log or .txt file to begin</p>
-            <p className="text-xs text-gray-600 max-w-sm mb-5">
+            <p className="text-base font-mono text-gray-200 mb-1">Drag &amp; drop a .log or .txt file to begin</p>
+            <p className="text-sm text-gray-400 max-w-sm mb-5">
                 No active log streams mounted into pipeline. Drop a file anywhere in this zone, or browse from the header above.
             </p>
             <button

@@ -39,10 +39,10 @@ export default function LogTable({ logs, highlightMinute, onClearHighlight }) {
                     <button
                         key={filter}
                         onClick={() => setActiveFilter(filter)}
-                        className={`px-3 py-1 text-xs font-mono rounded transition-all ${
+                        className={`px-3.5 py-1.5 text-xs font-mono rounded transition-all ${
                             activeFilter === filter
                                 ? "bg-gray-800 text-white border border-gray-700"
-                                : "text-gray-500 hover:text-gray-300"
+                                : "text-gray-400 hover:text-gray-200"
                         }`}
                     >
                         {filter}
@@ -64,7 +64,7 @@ export default function LogTable({ logs, highlightMinute, onClearHighlight }) {
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         placeholder="Search logs (e.g. timeout, psycopg2)..."
-                        className="w-full bg-gray-950/60 border border-gray-800 rounded px-3 py-1.5 pl-7 text-xs font-mono text-gray-200 placeholder-gray-600 focus:outline-none focus:border-purple-500/40"
+                        className="w-full bg-gray-950/60 border border-gray-800 rounded px-3 py-1.5 pl-7 text-xs font-mono text-gray-200 placeholder-gray-500 focus:outline-none focus:border-purple-500/40"
                     />
                     <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-600 text-xs">⌕</span>
                 </div>
@@ -72,28 +72,28 @@ export default function LogTable({ logs, highlightMinute, onClearHighlight }) {
 
             {/* High Density Table */}
             <div className="overflow-x-auto max-h-[500px]">
-                <table className="w-full text-xs font-mono text-left border-collapse">
-                    <thead className="bg-gray-900/20 sticky top-0 backdrop-blur-sm border-b border-gray-800">
-                        <tr className="text-gray-500">
-                            <th className="p-3 pl-4 w-44">TIMESTAMP</th>
-                            <th className="p-3 w-24">LEVEL</th>
-                            <th className="p-3">LOG MESSAGE</th>
+                <table className="w-full text-sm font-mono text-left border-collapse">
+                    <thead className="bg-gray-900/40 sticky top-0 backdrop-blur-sm border-b border-gray-800">
+                        <tr className="text-gray-400">
+                            <th className="p-3.5 pl-4 w-44">TIMESTAMP</th>
+                            <th className="p-3.5 w-24">LEVEL</th>
+                            <th className="p-3.5">LOG MESSAGE</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-900">
                         {filteredLogs.map((log, i) => (
-                            <tr key={i} 
+                            <tr key={i}
                                 onClick={() => log.ai_analysis && setSelected(log)}
-                                className={`hover:bg-gray-900/60 transition-colors ${log.ai_analysis ? "cursor-pointer group bg-purple-500/[0.01]" : "opacity-70"}`}
+                                className={`hover:bg-gray-900/60 transition-colors ${log.ai_analysis ? "cursor-pointer group bg-purple-500/[0.01]" : "opacity-80"}`}
                             >
-                                <td className="p-3 pl-4 text-gray-500 whitespace-nowrap">{log.timestamp}</td>
-                                <td className={`p-3 font-semibold ${LEVEL_COLORS[log.level] || "text-gray-400"}`}>
+                                <td className="p-3.5 pl-4 text-gray-400 whitespace-nowrap">{log.timestamp}</td>
+                                <td className={`p-3.5 font-semibold ${LEVEL_COLORS[log.level] || "text-gray-400"}`}>
                                     [{log.level}]
                                 </td>
-                                <td className="p-3 text-gray-300 truncate max-w-200 flex justify-between items-center">
+                                <td className="p-3.5 text-gray-200 truncate max-w-200 flex justify-between items-center">
                                     <span>{log.message}</span>
                                     {log.ai_analysis && (
-                                        <span className="text-[10px] text-purple-400 bg-purple-500/10 px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap ml-2">
+                                        <span className="text-xs text-purple-300 bg-purple-500/10 px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap ml-2">
                                             View SRE Diagnostic →
                                         </span>
                                     )}

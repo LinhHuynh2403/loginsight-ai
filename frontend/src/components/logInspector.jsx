@@ -33,13 +33,13 @@ export default function LogInspector({ log, onClose }) {
 
                 <div className="space-y-4">
                     <div>
-                        <span className="text-[10px] uppercase tracking-wider text-gray-500 font-semibold block mb-1">Timestamp</span>
-                        <p className="text-sm font-mono text-gray-400">{log.timestamp}</p>
+                        <span className="text-xs uppercase tracking-wider text-gray-400 font-semibold block mb-1">Timestamp</span>
+                        <p className="text-sm font-mono text-gray-300">{log.timestamp}</p>
                     </div>
 
                     <div>
-                        <span className="text-[10px] uppercase tracking-wider text-gray-500 font-semibold block mb-1">Raw Log Payload</span>
-                        <div className="p-3 bg-black/40 rounded border border-gray-800/80 font-mono text-xs text-gray-300 break-all leading-relaxed">
+                        <span className="text-xs uppercase tracking-wider text-gray-400 font-semibold block mb-1">Raw Log Payload</span>
+                        <div className="p-3 bg-black/40 rounded border border-gray-800/80 font-mono text-sm text-gray-200 break-all leading-relaxed">
                             {log.message}
                         </div>
                     </div>
@@ -48,23 +48,23 @@ export default function LogInspector({ log, onClose }) {
                         <div className="flex items-center justify-between mb-2">
                             <div className="flex items-center gap-1.5">
                                 <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
-                                <span className="text-[10px] uppercase tracking-wider text-purple-400 font-bold">Autonomous SRE Diagnostics</span>
+                                <span className="text-xs uppercase tracking-wider text-purple-300 font-bold">Autonomous SRE Diagnostics</span>
                             </div>
                             {log.ai_analysis && (
                                 <button
                                     onClick={handleCopy}
                                     title="Copy fix to clipboard"
-                                    className="flex items-center gap-1 text-[10px] font-mono text-gray-500 hover:text-purple-300 transition-colors px-1.5 py-0.5 rounded hover:bg-purple-500/10"
+                                    className="flex items-center gap-1 text-xs font-mono text-gray-400 hover:text-purple-300 transition-colors px-1.5 py-0.5 rounded hover:bg-purple-500/10"
                                 >
                                     {copied ? (
-                                        <><Check size={11} /> Copied!</>
+                                        <><Check size={12} /> Copied!</>
                                     ) : (
-                                        <><Clipboard size={11} /> Copy</>
+                                        <><Clipboard size={12} /> Copy</>
                                     )}
                                 </button>
                             )}
                         </div>
-                        <p className="text-sm text-gray-300 leading-relaxed bg-purple-505/5 p-3.5 rounded border border-purple-500/10">
+                        <p className="text-base text-gray-200 leading-relaxed bg-purple-500/5 p-3.5 rounded border border-purple-500/10">
                             {log.ai_analysis || "No anomalies flagged for this entry."}
                         </p>
                     </div>
