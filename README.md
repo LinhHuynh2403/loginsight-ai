@@ -1,12 +1,6 @@
 # LogInsight AI — AI-Powered Log Observability Platform
 
-[📺 2-minute demo video — link here]
-
 A lightweight observability tool that ingests raw application logs, uses Gemini 2.5 Flash to auto-diagnose `ERROR`/`WARN` events with root-cause analysis, and visualizes system health in real time. Built to replicate the core workflow of tools like Datadog/Sentry on a small scale.
-
-## Live Demo
-- Frontend: https://your-app.vercel.app
-- Backend health check: https://your-app.up.railway.app/health
 
 ## Architecture
 
